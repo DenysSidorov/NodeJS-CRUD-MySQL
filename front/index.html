@@ -1,29 +1,50 @@
-<html lang="en" >
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
-<body ng-app="BlankApp" ng-cloak>
+<body>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Users</div>
 
-
-
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-
-<!-- Angular Material Library -->
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-
-<!-- Your application bootstrap  -->
-<script type="text/javascript" src="js/index.js"></script>
-
+            <!-- Table -->
+            <table class="table">
+                <tr>
+                    <th>User</th>
+                    <th>Age</th>
+                    <th>Male</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td>Denis</td>
+                    <td>25</td>
+                    <td>male</td>
+                    <td><button type="button" class="btn btn-primary">Delete</button></td>
+                    <td><button type="button" class="btn btn-primary" onclick="console.log('Privet');">Edit</button></td>
+            </tr>
+                <tr>
+                    <td>Victoria</td>
+                    <td>24</td>
+                    <td>female</td>
+                    <td><button type="button" class="btn btn-primary">Delete</button></td>
+                    <td><button type="button" class="btn btn-primary">Edit</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>
-
-<!--
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
--->

@@ -1,0 +1,38 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        // Latest compiled and minified CSS
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        // Optional theme
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css')
+        link(rel='stylesheet', href='css/style.css')
+        // Latest compiled and minified JavaScript
+        script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
+        script(src='//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+        script(src='js/main.js')
+    body
+        .row
+            .col-md-6.col-md-offset-3
+                .panel.panel-default
+                    // Default panel contents
+                    .panel-heading Users
+                    // Table
+                    table.table
+                        tr
+                            th User
+                            th Age
+                            th Male
+                            th Delete
+                            th Edit
+                        each  item in users
+                            tr
+                            item.name
+                                td= item.name
+                                td= item.age
+                                td= item.married
+                                td
+                                    button.btn.btn-primary(type='button' onclick='deleteUser("#{item.id}")') Delete
+                                td
+                                    button.btn.btn-primary(type='button' onclick='editUser("#{item.id}")' ) Edit
