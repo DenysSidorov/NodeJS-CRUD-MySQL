@@ -26,4 +26,12 @@ html(lang='en')
                     button.btn.btn-default(type='submit') Отправить
 
 
-                p= user
+                if users
+                    p users
+                else
+                    p not users
+
+                if user
+                    p user
+                else
+                    p not user
