@@ -24,7 +24,7 @@ app.set('views', __dirname + '/views'); // + '/views'
 
 app.get('/', function (req, res) {
     model_users.list(function (err, result) {
-        console.log(result);
+
         res.render('index', {
             title: 'List Users',
             users: result
@@ -32,8 +32,8 @@ app.get('/', function (req, res) {
     });
 });
 
+
 app.delete('/:id', function (req, resp) {
-    console.log(req.params.id);
     model_users.delete(req.params.id, function (err, result) {
         if (err) throw err;
         console.log('deleted ' + result.affectedRows + ' rows');
@@ -45,11 +45,10 @@ app.delete('/:id', function (req, resp) {
         });
     });
 });
-app.get('/f',function (req, resp) {
-
-    model_users.getById(1, function (err, result) {
-        var user = {};
-        console.log(result);
+app.get('/:id',function (req, resp) {
+    var user = {};
+    model_users.getById(req.params.id, function (err, result) {
+        if(err) throw err;
 
         user.id= result[0].id;
         user.name = result[0].name;
@@ -57,25 +56,28 @@ app.get('/f',function (req, resp) {
         user.married = result[0].married;
 
         console.log(user);
-        resp.(user);
+        resp.render('edit', user);
+
     });
 
 });
 
 app.put('/:id', function (req, resp) {
+
      var user = {};
         model_users.getById(req.params.id, function (err, result) {
-        user.id= result[0].id;
-        user.name = result[0].name;
-        user.age = result[0].age;
-        user.married = result[0].married;
+            if(err) throw err;
+
+            user.id= result[0].id;
+            user.name = result[0].name;
+            user.age = result[0].age;
+            user.married = result[0].married;
+
+
     });
-
-    app.render('edit', {
-       user:user
+    resp.render('edit', {
+        user:user
     });
-
-
 
     // model_users.change(req.params.id,{}, function (err, result) {
     //     if (err) throw err;

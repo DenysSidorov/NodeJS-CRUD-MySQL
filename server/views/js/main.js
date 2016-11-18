@@ -12,12 +12,16 @@ function deleteUser(id) {
 
 function editUser(id) {
     var link  = '/' + id;
-    console.log(id);
-    $.ajax({
-        url: link,
-        type: 'PUT',
-        success: function(result) {
-            // Do something with the result
-        }
-    });
+    window.location = link;
+    // console.log(id);
+    // $.ajax({
+    //     url: link,
+    //     type: 'PUT',
+    //     success: function(result) {
+    //         console.log(result);
+    //         window.location = link;
+    //         $("html").html(result);
+    //
+    //     }
+    // });
 }

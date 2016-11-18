@@ -6,13 +6,13 @@ var Tasks = {
         db_pool.query('SELECT * FROM users', callback);
     },
 
-    add: function (task, callback) {
-        db_pool.query('INSERT INTO users SET ?', {
-            name: task,
-            age: 10,
-            married: 1
-        }, callback);
-    },
+    // add: function (task, callback) {
+    //     db_pool.query('INSERT INTO users SET ?', {
+    //         name: task,
+    //         age: 10,
+    //         married: 1
+    //     }, callback);
+    // },
 
     change: function (id, text, callback) {
         // TODO
