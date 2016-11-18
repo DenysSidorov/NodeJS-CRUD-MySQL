@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
+        title Document
+        // Latest compiled and minified CSS
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        // Optional theme
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css')
+        // Latest compiled and minified JavaScript
+        script(src='//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
+    body
+        .row
+            .col-md-6.col-md-offset-3
+                form.navbar-form.navbar-left(method='post', action='/', novalidate='', role='search')
+                    .form-group
+                        label(for='userAge') Name
+                        input#userAge.form-control(name='Name', type='text', placeholder='Search', value='')
+                        label(for='userName') Age
+                        input#userName.form-control(name='Age', type='text', placeholder='Search', value='')
+                        label(for='userIsMarried') Married
+                        input#userIsMarried.form-control(name='Married', type='text', placeholder='Search', value='')
+                    button.btn.btn-default(type='submit') Отправить
+
+                each it in user
+                    p= it.name

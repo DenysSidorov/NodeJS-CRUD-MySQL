@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/:id', function (req, resp) {
+app.delete('/:id', function (req, resp) {
     console.log(req.params.id);
     model_users.delete(req.params.id, function (err, result) {
         if (err) throw err;
@@ -45,7 +45,49 @@ app.post('/:id', function (req, resp) {
         });
     });
 });
+app.get('/f',function (req, resp) {
 
+    model_users.getById(1, function (err, result) {
+        var user = {};
+        console.log(result);
+
+        user.id= result[0].id;
+        user.name = result[0].name;
+        user.age = result[0].age;
+        user.married = result[0].married;
+
+        console.log(user);
+        resp.(user);
+    });
+
+});
+
+app.put('/:id', function (req, resp) {
+     var user = {};
+        model_users.getById(req.params.id, function (err, result) {
+        user.id= result[0].id;
+        user.name = result[0].name;
+        user.age = result[0].age;
+        user.married = result[0].married;
+    });
+
+    app.render('edit', {
+       user:user
+    });
+
+
+
+    // model_users.change(req.params.id,{}, function (err, result) {
+    //     if (err) throw err;
+    //     console.log('deleted ' + result.affectedRows + ' rows');
+    // });
+    // model_users.list(function (err, result) {
+    //     resp.render('index', {
+    //         title: 'List Users',
+    //         users: result
+    //     });
+    // });
+});
 
 app.listen(8080);
 console.log('Express server listening on port 8080');

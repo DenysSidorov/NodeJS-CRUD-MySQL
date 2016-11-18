@@ -18,8 +18,8 @@ var Tasks = {
         // TODO
     },
 
-    complete: function (id, callback) {
-        // TODO
+    getById: function (id, callback) {
+        db_pool.query('SELECT * FROM users WHERE id = ?',[id], callback)
     },
 
     delete: function (id, callback) {
