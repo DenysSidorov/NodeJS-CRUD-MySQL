@@ -21,6 +21,7 @@ app.engine('jade', templating.jade);
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views'); // + '/views'
 
+
 app.get('/', function (req, res) {
     model_users.list(function (err, result) {
 
@@ -44,7 +45,6 @@ app.delete('/:id', function (req, resp) {
     });
 });
 
-
 app.get('/:id', function (req, resp) {
     var user = {};
     model_users.getById(req.params.id, function (err, result) {
@@ -61,8 +61,6 @@ app.get('/:id', function (req, resp) {
 });
 
 app.post('/:id', function (req, resp) {
-
-
     var user = req.body;
     console.log(' post - /:id', user, '  ', req.body);
     model_users.change(user, function (err, result) {
@@ -90,23 +88,6 @@ app.post('/', function (req, res) {
     }
 });
 
-// app.put('/:id', function (req, resp) {
-//
-//     var user = {};
-//     model_users.getById(req.params.id, function (err, result) {
-//         if (err) throw err;
-//
-//         user.id = result[0].id;
-//         user.name = result[0].name;
-//         user.age = result[0].age;
-//         user.married = result[0].married;
-//
-//
-//     });
-//     resp.render('edit', {
-//         user: user
-//     });
-// });
 
 app.listen(8080);
 console.log('Express server listening on port 8080');

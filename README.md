@@ -1,0 +1,1 @@
+NodeJS, ExpressJS, Jade Templates, MySQL, jQuery, Bootstrap, CRUD operations
