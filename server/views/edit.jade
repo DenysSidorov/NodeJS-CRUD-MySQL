@@ -5,17 +5,13 @@ html(lang='en')
         meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
         meta(http-equiv='X-UA-Compatible', content='ie=edge')
         title Document
-        // Latest compiled and minified CSS
         link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
-        // Optional theme
         link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css')
-        // Latest compiled and minified JavaScript
         script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
         script(src='js/bootstrap.js')
     body
         .row
             .col-md-6.col-md-offset-3
-
                 form.navbar-form.navbar-left(method='post', novalidate='', role='search' name='formUser')
                     .form-group
                         input#userId.form-control(type='hidden', name='id', value= user.id)
@@ -26,20 +22,3 @@ html(lang='en')
                         label(for='userIsMarried') Married
                             input#userIsMarried.form-control(name='married', type='text', placeholder='Married', value= user.married)
                         button.btn.btn-default(type='submit') Изменить
-
-
-                if users
-                    p users
-                else
-                    p not users
-
-                if user
-                    p user
-                else
-                    p not user
-
-                if user.id
-                    p user id
-                else
-                    p not user id
-
