@@ -21,7 +21,6 @@ app.engine('jade', templating.jade);
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views'); // + '/views'
 
-
 app.get('/', function (req, res) {
     model_users.list(function (err, result) {
 
@@ -31,7 +30,6 @@ app.get('/', function (req, res) {
         });
     });
 });
-
 
 app.delete('/:id', function (req, resp) {
     model_users.delete(req.params.id, function (err, result) {
@@ -45,51 +43,80 @@ app.delete('/:id', function (req, resp) {
         });
     });
 });
-app.get('/:id',function (req, resp) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.get('/:id', function (req, resp) {
     var user = {};
     model_users.getById(req.params.id, function (err, result) {
-        if(err) throw err;
-
-        user.id= result[0].id;
+        if (err) throw err;
+        user.id = result[0].id;
         user.name = result[0].name;
         user.age = result[0].age;
         user.married = result[0].married;
 
-        console.log(user);
-        resp.render('edit', user);
+        console.log('get - /:id', user);
+        resp.render('edit', {user: user});
+
+    });
+});
+
+app.post('/:id', function (req, resp) {
+
+
+    var user = req.body;
+    console.log(' post - /:id', user,'  ', req.body);
+    model_users.change(user, function (err, result) {
+        if (err) throw err;
+        console.log(user, ' user');
+        model_users.list(function (err, result) {
+            if (err) throw err;
+            resp.redirect('/');
+        });
 
     });
 
 });
 
-app.put('/:id', function (req, resp) {
+// app.post('/', function (req, res) {
+//     tasks.add(req.body.task, function () {
+//         res.redirect('/');
+//     });
+// });
 
-     var user = {};
-        model_users.getById(req.params.id, function (err, result) {
-            if(err) throw err;
-
-            user.id= result[0].id;
-            user.name = result[0].name;
-            user.age = result[0].age;
-            user.married = result[0].married;
-
-
-    });
-    resp.render('edit', {
-        user:user
-    });
-
-    // model_users.change(req.params.id,{}, function (err, result) {
-    //     if (err) throw err;
-    //     console.log('deleted ' + result.affectedRows + ' rows');
-    // });
-    // model_users.list(function (err, result) {
-    //     resp.render('index', {
-    //         title: 'List Users',
-    //         users: result
-    //     });
-    // });
-});
+// app.put('/:id', function (req, resp) {
+//
+//     var user = {};
+//     model_users.getById(req.params.id, function (err, result) {
+//         if (err) throw err;
+//
+//         user.id = result[0].id;
+//         user.name = result[0].name;
+//         user.age = result[0].age;
+//         user.married = result[0].married;
+//
+//
+//     });
+//     resp.render('edit', {
+//         user: user
+//     });
+// });
 
 app.listen(8080);
 console.log('Express server listening on port 8080');

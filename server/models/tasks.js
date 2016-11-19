@@ -5,21 +5,15 @@ var Tasks = {
     list: function (callback) {
         db_pool.query('SELECT * FROM users', callback);
     },
-
-    // add: function (task, callback) {
-    //     db_pool.query('INSERT INTO users SET ?', {
-    //         name: task,
-    //         age: 10,
-    //         married: 1
-    //     }, callback);
-    // },
-
-    change: function (id, text, callback) {
-        // TODO
+    change: function (text, callback) {
+        // db_pool.query('UPDATE users SET name = :name WHERE id = :id',
+        //     {id: id, name: text.name});
+        db_pool.query('UPDATE users SET name = ?, age = ?, married = ? WHERE id = ?',
+            [text.name, text.age, text.married, text.id], callback);
     },
 
     getById: function (id, callback) {
-        db_pool.query('SELECT * FROM users WHERE id = ?',[id], callback)
+        db_pool.query('SELECT * FROM users WHERE id = ?', [id], callback)
     },
 
     delete: function (id, callback) {
