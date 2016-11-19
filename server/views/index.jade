@@ -36,3 +36,16 @@ html(lang='en')
                                     button.btn.btn-primary(type='button' onclick='deleteUser("#{item.id}")') Delete
                                 td
                                     button.btn.btn-primary(type='button' onclick='editUser("#{item.id}")' ) Edit
+        .row
+            div.alert.alert-success.col-md-6.col-md-offset-3(role='alert') ДОБАВИТЬ НОВОГО ПОЛЬЗОВАТЕЛЯ
+        .row
+            .col-md-6.col-md-offset-3
+                form.navbar-form.navbar-left(method='post', name='addUser')
+                    .form-group
+                        label(for='userAge') Name
+                            input#userAge.form-control(name='name', type='text', placeholder='Name' )
+                        label(for='userName') Age
+                            input#userName.form-control(name='age', type='text', placeholder='Age')
+                        label(for='userIsMarried') Note
+                            input#userIsMarried.form-control(name='married', type='text', placeholder='Note')
+                        button.btn.btn-default.col-md-6.col-md-offset-3(type='submit') Добавить

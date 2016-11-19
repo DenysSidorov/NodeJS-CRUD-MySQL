@@ -20,13 +20,12 @@ html(lang='en')
                     .form-group
                         input#userId.form-control(type='hidden', name='id', value= user.id)
                         label(for='userAge') Name
-                            input#userAge.form-control(name='name', type='text', placeholder='Search', value= user.name)
+                            input#userAge.form-control(name='name', type='text', placeholder='Name', value= user.name)
                         label(for='userName') Age
-                            input#userName.form-control(name='age', type='text', placeholder='Search', value= user.age)
+                            input#userName.form-control(name='age', type='text', placeholder='Age', value= user.age)
                         label(for='userIsMarried') Married
-                            input#userIsMarried.form-control(name='married', type='text', placeholder='Search', value= user.married)
-
-                        button.btn.btn-default(type='submit') Отправить
+                            input#userIsMarried.form-control(name='married', type='text', placeholder='Married', value= user.married)
+                        button.btn.btn-default(type='submit') Изменить
 
 
                 if users
@@ -43,3 +42,4 @@ html(lang='en')
                     p user id
                 else
                     p not user id
+

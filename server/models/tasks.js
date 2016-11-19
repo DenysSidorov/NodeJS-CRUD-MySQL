@@ -18,6 +18,13 @@ var Tasks = {
 
     delete: function (id, callback) {
         db_pool.query('DELETE FROM users WHERE id = ?', [id], callback)
+    },
+    add: function (user, callback) {
+        db_pool.query('INSERT INTO users SET ?', {
+            name: user.name,
+            age: user.age,
+            married: user.married
+        }, callback)
     }
 };
 

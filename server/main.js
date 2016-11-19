@@ -45,23 +45,6 @@ app.delete('/:id', function (req, resp) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.get('/:id', function (req, resp) {
     var user = {};
     model_users.getById(req.params.id, function (err, result) {
@@ -81,7 +64,7 @@ app.post('/:id', function (req, resp) {
 
 
     var user = req.body;
-    console.log(' post - /:id', user,'  ', req.body);
+    console.log(' post - /:id', user, '  ', req.body);
     model_users.change(user, function (err, result) {
         if (err) throw err;
         console.log(user, ' user');
@@ -89,16 +72,23 @@ app.post('/:id', function (req, resp) {
             if (err) throw err;
             resp.redirect('/');
         });
-
     });
-
 });
 
-// app.post('/', function (req, res) {
-//     tasks.add(req.body.task, function () {
-//         res.redirect('/');
-//     });
-// });
+app.post('/', function (req, res) {
+    console.log('сработал');
+    var user = req.body;
+    console.log(user);
+    if (user.name != '' && user.age != ''){
+        model_users.add(user, function (err, result) {
+            console.log(result.insertId);
+            res.redirect('/');
+        });
+    }else {
+        console.log('пустой');
+        res.redirect('/');
+    }
+});
 
 // app.put('/:id', function (req, resp) {
 //

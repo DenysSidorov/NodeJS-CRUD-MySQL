@@ -25,3 +25,17 @@ function editUser(id) {
     //     }
     // });
 }
+function addUser() {
+    var button = document.getElementById('idAdd');
+    button.stopPropagation();
+    button.preventDefault();
+    console.log('click');
+    // var link  = '/add';
+    // $.ajax({
+    //     url: link,
+    //     type: 'POST',
+    //     success: function( data ) {
+    //         window.location.reload();
+    //     }
+    // });
+}
